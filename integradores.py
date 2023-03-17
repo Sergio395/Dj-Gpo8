@@ -146,4 +146,4 @@ def mas_repetida (dicc):
     # print (f'Ej4 (print desde mas_repetida): La tupla de valores máximos es: {tuplamax}')
     return tuplamax
 
-print (mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres:  " ))))
+print (mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres: " ))))
