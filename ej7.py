@@ -10,17 +10,16 @@ El atributo no se puede modificar directamente, sólo ingresando o retirando din
 ● retirar(cantidad): se retira una cantidad a la cuenta. La cuenta puede estar en números rojos.
 """
 
-
 class Cuenta:
     # Atributos de clase
-    __titular = ''
-    __cantidad = 0
+    # __titular = ''
+    # __cantidad = 0
 
     # Constructor
 
-    def __init__(self):
-        self.__titular = ''
-        self.__cantidad = 0
+    def __init__(self, titular="", cantidad=0):
+        self.__titular = titular
+        self.__cantidad = cantidad
 
     # getter (uso de decoradores)
     # getter y setter para el atributo privado nombre
@@ -60,16 +59,17 @@ class Cuenta:
         self.cantidad= self.cantidad - monto
         print(f'El monto actual es {self.cantidad}')
 
-cliente1 = Cuenta()
-print (f'Mostrar cliente1: cliente1.mostrar()')
-print(cliente1.mostrar())
-cliente1.titular= "Pepe"
-print (f'Mostrar cliente1: {cliente1.mostrar()}')
-cliente1.ingresar(-10)
-print (f'Mostrar cliente1: {cliente1.mostrar()}')
-cliente1.ingresar(50)
-print (f'Mostrar cliente1: {cliente1.mostrar()}')
-cliente1.retirar(20)
-print (f'Mostrar cliente1: {cliente1.mostrar()}')
-cliente1.retirar(50)
-print (f'Mostrar cliente1: {cliente1.mostrar()}')
+if __name__ == '__main__':
+    cliente1 = Cuenta()
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(cliente1.mostrar())
+    cliente1.titular= "Pepe"
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.ingresar(-10)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.ingresar(50)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.retirar(20)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.retirar(50)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
