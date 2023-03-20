@@ -2,88 +2,49 @@
 ** EJERCICIOS INTEGRADORES **
 """
 
+print("Elija el número de script (1 al 8) que desea ejecutar")
+eleccion = input()
 
+match eleccion:
+    case "1":
+        pass
+    case "2":
+        pass
+    case "3":
+        diccionario()
+    case "4":
+        print(mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres:  "))))
+    case "5":
+        print(get_int(prueba))
+    case "6":
+        clase_persona()
+    case "7":
+        clase_cuenta()
+    case "8":
+        clase_cuentajoven()
+    
 # 1. Escribir una función que calcule el máximo común divisor entre dos números.
-"""
-El máximo común divisor (mcd) de dos o más números enteros es el mayor número entero que es divisor común de ellos. Por ejemplo, el mcd de 24 y 36 es 12, ya que 12 es el mayor número entero que divide exactamente a ambos números.
-La fórmula de Euclides es un algoritmo para encontrar el mcd de dos números enteros. La fórmula establece que el mcd de dos números a y b es igual al mcd de b y el resto de la división de a entre b. Esta fórmula se puede aplicar repetidamente hasta que el resto de la división sea cero, momento en el cual el último divisor no nulo será el mcd buscado.
-Por ejemplo, para encontrar el mcd de 24 y 36 utilizando la fórmula de Euclides, se realiza lo siguiente:
-Dividimos 36 entre 24 y obtenemos un cociente de 1 y un resto de 12.
-El mcd de 24 y 36 es igual al mcd de 24 y 12.
-Dividimos 24 entre 12 y obtenemos un cociente de 2 y un resto de 0.
-El último divisor no nulo es 12, por lo que el mcd de 24 y 36 es 12.
-"""
-def mcd(a, b):
-    """
-    Función que calcula el máximo comun divisor entre 2 números enteros
-    """
-    while b != 0:
-        resto = a % b
-        a = b
-        b = resto
-    return a
-
-print(mcd(15, 5))
-print(mcd(24, 32))
 
 
 # 2. Escribir una función que calcule el mínimo común múltiplo entre dos números
-"""
-Para encontrar el mcm de dos números enteros, podemos utilizar el hecho de que el producto de dos números enteros es igual al producto de su mcd y su mcm. Es decir:
-a x b = mcd(a,b) x mcm(a,b)
-Por lo tanto, podemos encontrar el mcm de dos números enteros a y b dividiendo su producto por su mcd. Por ejemplo, para encontrar el mcm de 6 y 8 utilizando este método, se realiza lo siguiente:
-
-El mcd de 6 y 8 es 2.
-El producto de 6 y 8 es 48.
-El mcm de 6 y 8 es igual a 48 dividido por 2, es decir, 24.
-"""
-def mcm_x_euc(a, b):
-    """
-    Función que calcula el mcm conociendo el MCD entre 2 números enteros por el método de Euclides
-    """
-    mcd_eu = mcd(a, b) # correccion en el nombe, reemplacé "mcd" x "mcd_eu" , no diferenciaba la función de la variable
-    mcm = (a * b) // mcd_eu
-    return mcm
-
-print(mcm_x_euc(16, 5))
-print(mcm_x_euc(7, 22))
-
-def mcm_x_enu(a, b):
-    """
-    Función que calcula el mínimo común múltiplo entre 2 números enteros utilizando el método de enumeración de múltiplos. Este método implica enumerar los múltiplos de ambos números hasta encontrar el primer múltiplo común, que será el mínimo común múltiplo. Es importante tener en cuenta que este método puede ser ineficiente para números muy grandes, ya que implica la enumeración de múltiplos.
-    """
-    i = max(a, b)
-
-    while True:
-        if i % a == 0 and i % b == 0:
-            return i
-        i += 1
-
-print(mcm_x_enu(16,5))
-print(mcm_x_enu(7, 22))
 
 
 # 3. Escribir un programa que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia).
-def contar_palabras(cadena):
-    # Dividimos la cadena en palabras y las almacenamos en una lista
-    palabras = cadena.split()
-    # Creamos un diccionario para almacenar la frecuencia de cada palabra
-    frecuencia = {}
-    # Recorremos cada palabra de la lista
-    for palabra in palabras:
-        # Si la palabra ya se encuentra en el diccionario, incrementamos su frecuencia
-        if palabra in frecuencia:
-            frecuencia[palabra] += 1
-        # Si la palabra no se encuentra en el diccionario, la agregamos con frecuencia 1
-        else:
-            frecuencia[palabra] = 1
-    # Devolvemos el diccionario con la frecuencia de cada palabra
-    return frecuencia
 
-print(contar_palabras(input("Ingrese una cadena de caracteres: ")))
-
+def diccionario():
+    
+    #solicito al usuario una entrada de texto
+    lista = str(input("ingese su texto: "))
+    #genera una lista donde cada palabra es un elemento
+    lista = (lista.split())
+    # itera la lista formando un diccionario donde el key es la palabra y el valor su repetición
+    diccionario = {i:lista.count(i) for i in lista}
+    # imprimo el diccionario
+    print(diccionario)
+    
 
 # 4. Escribir una función que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia). Escribir otra función que reciba el diccionario generado con la función anterior y devuelva una tupla con la palabra más repetida y su frecuencia.
+
 def mas_repetida (dicc):
     """
     La función va a recibir un diccionario.
@@ -104,7 +65,28 @@ def mas_repetida (dicc):
     # print (f'Ej4 (print desde mas_repetida): La tupla de valores máximos es: {tuplamax}')
     return tuplamax
 
-print (mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres:  " ))))
+
+# 5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el ejercicio tanto de manera iterativa como recursiva.
+
+def get_int (cadena):
+    '''
+    Inicializa la variable es_int que usaremos para entrar o salir del ciclo while, en donde guardaremos si se pudo realizar la conversión.
+    Luego iniciamos un ciclo while, para que pida al usuario ingresar el valor hasta que pueda realizar la conversión (es_int == True sale del ciclo).
+    El bloque try intenta convertir el ingreso de datos a int, si no hay errores asigna a es_int == True para que no vuelva a entar al ciclo while, y devuelve la cadena.
+    Si se lanza la excepción ValueError, es_int = False para que vuelva al ciclo while y vuelve a pedir al usuario que ingrese un valor.
+    '''
+    es_int = False
+    while es_int == False:
+        try:
+            int(cadena)
+            es_int = True
+            return cadena
+        except ValueError:
+            es_int = False
+            cadena = input('Ej5: Ingrese un número entero: ')
+
+# Comprobación de funcionamiento
+prueba = input('Ej5: Ingrese un número entero: ')
 
 
 # 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los
@@ -114,6 +96,7 @@ print (mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres
 # datos.
 # ● mostrar(): Muestra los datos de la persona.
 # ● es_mayor_de_edad(): Devuelve un valor lógico indicando si es mayor de edad.
+
 class Persona:
     def __init__(self, nombre="", edad="", dni=""):
         self.__nombre = nombre
@@ -163,18 +146,86 @@ class Persona:
         else:
             return False
 
-persona = Persona()
-persona.nombre = "José González"
-persona.mostrar()
-persona.edad = "muchos"
-persona.edad = -1
-persona.edad = 50
-persona.mostrar()
-persona.dni = "no recuerdo"
-persona.dni = 999999
-persona.dni = 2345678
-persona.mostrar()
-print(persona.es_mayor_de_edad())
+def clase_persona():
+    persona = Persona()
+    persona.nombre = "José González"
+    persona.mostrar()
+    persona.edad = "muchos"
+    persona.edad = -1
+    persona.edad = 50
+    persona.mostrar()
+    persona.dni = "no recuerdo"
+    persona.dni = 999999
+    persona.dni = 2345678
+    persona.mostrar()
+    print(persona.es_mayor_de_edad())
+
+
+# 7. Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular (que es una persona) y cantidad (puede tener decimales). El titular será obligatorio y la cantidad es opcional. Crear los siguientes métodos para la clase:
+# ● Un constructor, donde los datos pueden estar vacíos.
+# ● Los setters y getters para cada uno de los atributos. El atributo no se puede modificar directamente, sólo ingresando o retirando dinero.
+# ● mostrar(): Muestra los datos de la cuenta.
+# ● ingresar(cantidad): se ingresa una cantidad a la cuenta, si la cantidad  introducida es negativa, no se hará nada.
+# ● retirar(cantidad): se retira una cantidad a la cuenta. La cuenta puede estar en números rojos.
+
+class Cuenta:
+    # Constructor
+    def __init__(self, titular="", cantidad=0):
+        self.__titular = titular
+        self.__cantidad = cantidad
+
+    # getter (uso de decoradores)
+    # getter y setter para el atributo privado nombre
+    # El orden es importante: 1ro el getter y luego el setter
+
+    @property
+    def cantidad(self):
+        # Obtiene (get) el saldo, protege la información
+        return self.__cantidad
+
+    @cantidad.setter
+    def cantidad(self, cantidad):
+        self.__cantidad = cantidad
+
+    @property
+    def titular(self):
+        return self.__titular  # Obtiene el nomnre
+
+    @titular.setter
+    def titular(self, nombre):  # Repetimos el nombre del método y en el decorador
+        self.__titular = nombre  # Es el nombre que le paso como parámetro a la función
+
+    def mostrar(self):
+        cadena = "Titular: " + self.titular + \
+            " Cantidad: " + str(self.cantidad)
+        return cadena
+
+    def ingresar(self, monto):
+        if monto > 0:
+            self.cantidad= self.cantidad + monto
+            print(f'El monto actual es {self.cantidad}')
+        else:
+            print(f'el monto es menor a cero, no se puede ingresar')
+        print('Fin de la transacción')
+
+    def retirar(self, monto):
+        self.cantidad= self.cantidad - monto
+        print(f'El monto actual es {self.cantidad}')
+
+def clase_cuenta():
+    cliente1 = Cuenta()
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(cliente1.mostrar())
+    cliente1.titular= "Pepe"
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.ingresar(-10)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.ingresar(50)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.retirar(20)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.retirar(50)
+    print (f'Mostrar cliente1: {cliente1.mostrar()}')
 
 
 # 8. Vamos a definir ahora una “Cuenta Joven”, para ello vamos a crear una nueva clase
@@ -189,7 +240,7 @@ print(persona.es_mayor_de_edad())
 # ● Además, la retirada de dinero sólo se podrá hacer si el titular es válido.
 # ● El método mostrar() debe devolver el mensaje de “Cuenta Joven” y la bonificación de la
 # cuenta.
-from ej7 import Cuenta
+
 class CuentaJoven(Cuenta):
     """
     Esta clase hereda los atributos y métodos de la clase Cuenta, pero para realizar una extracción, se debe tener entre 18 y 24 años. También cuenta con una bonificación por tratarse de un grupo etario joven
@@ -223,12 +274,13 @@ class CuentaJoven(Cuenta):
         print("Cuenta Joven")
         print("Bonificación:", self.__bonificacion, "%")
 
-juan = CuentaJoven("Juan Perez", 1000, 15)
-print(juan.bonificacion)
-print(juan.es_titular_valido(17))
-print(juan.es_titular_valido(24))
-juan.bonificacion = 20
-juan.mostrar()
-juan.retirar(500, 14)
-juan.retirar(200, 22)
-juan.mostrar()
+def clase_cuentajoven():
+    juan = CuentaJoven("Juan Perez", 1000, 15)
+    print(juan.bonificacion)
+    print(juan.es_titular_valido(17))
+    print(juan.es_titular_valido(24))
+    juan.bonificacion = 20
+    juan.mostrar()
+    juan.retirar(500, 14)
+    juan.retirar(200, 22)
+    juan.mostrar()
