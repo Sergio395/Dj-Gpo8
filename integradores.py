@@ -1,16 +1,26 @@
 """
 ** EJERCICIOS INTEGRADORES **
 """
+
     
 # 1. Escribir una función que calcule el máximo común divisor entre dos números.
+
+
+
+
 
 
 # 2. Escribir una función que calcule el mínimo común múltiplo entre dos números
 
 
+
+
+
+
+
 # 3. Escribir un programa que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia).
 
-def diccionario():
+def diccionario(inicio):
     
     #solicito al usuario una entrada de texto
     lista = str(input("ingese su texto: "))
@@ -18,9 +28,14 @@ def diccionario():
     lista = (lista.split())
     # itera la lista formando un diccionario donde el key es la palabra y el valor su repetición
     diccionario = {i:lista.count(i) for i in lista}
-    # imprimo el diccionario
-    print(diccionario)
-    
+    # imprimo el diccionario 
+
+    if inicio == 3:   
+        print(diccionario)  
+    else:
+
+        return diccionario
+
 
 # 4. Escribir una función que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia). Escribir otra función que reciba el diccionario generado con la función anterior y devuelva una tupla con la palabra más repetida y su frecuencia.
 
@@ -34,26 +49,27 @@ def mas_repetida (dicc):
     keymax = ''
     max = 0
     for key in dicc:
-        print (dicc[key])
+        #print (dicc[key])
         if dicc[key] >= max:
             max = dicc[key]
             keymax = key
         else:
             pass
     tuplamax = (keymax, max)
-    # print (f'Ej4 (print desde mas_repetida): La tupla de valores máximos es: {tuplamax}')
+    print (f'Ej4 (print desde mas_repetida): La tupla de valores máximos es: {tuplamax}')
     return tuplamax
 
 
 # 5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el ejercicio tanto de manera iterativa como recursiva.
 
-def get_int (cadena):
+def get_int ():
     '''
     Inicializa la variable es_int que usaremos para entrar o salir del ciclo while, en donde guardaremos si se pudo realizar la conversión.
     Luego iniciamos un ciclo while, para que pida al usuario ingresar el valor hasta que pueda realizar la conversión (es_int == True sale del ciclo).
     El bloque try intenta convertir el ingreso de datos a int, si no hay errores asigna a es_int == True para que no vuelva a entar al ciclo while, y devuelve la cadena.
     Si se lanza la excepción ValueError, es_int = False para que vuelva al ciclo while y vuelve a pedir al usuario que ingrese un valor.
     '''
+    cadena = input('Ej5: Ingrese un número entero: ')
     es_int = False
     while es_int == False:
         try:
@@ -62,10 +78,10 @@ def get_int (cadena):
             return cadena
         except ValueError:
             es_int = False
-            cadena = input('Ej5: Ingrese un número entero: ')
+            cadena = input('Ej5: Por favor ingrese un número entero: ')
 
-# Comprobación de funcionamiento
-prueba = input('Ej5: Ingrese un número entero: ')
+# Comprobación de funcionamiento8
+
 
 
 # 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los
@@ -264,23 +280,26 @@ def clase_cuentajoven():
     juan.retirar(200, 22)
     juan.mostrar()
 
-print("Elija el número de script (1 al 8) que desea ejecutar")
-eleccion = input()
 
-match eleccion:
-    case "1":
-        pass
-    case "2":
-        pass
-    case "3":
-        diccionario()
-    case "4":
-        print(mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres:  "))))
-    case "5":
-        print(get_int(prueba))
-    case "6":
-        clase_persona()
-    case "7":
-        clase_cuenta()
-    case "8":
-        clase_cuentajoven()
+def inicio(eleccion):
+  
+
+    match eleccion:
+        case "1":
+            pass
+        case "2":
+            pass
+        case "3":
+            diccionario(3)
+        case "4":
+            mas_repetida(diccionario(4))
+        case "5":
+            print(get_int())
+        case "6":
+            clase_persona()
+        case "7":
+            clase_cuenta()
+        case "8":
+            clase_cuentajoven()
+
+inicio(input("Elija el número de script (1 al 8) que desea ejecutar:  "))
