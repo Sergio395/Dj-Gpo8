@@ -1,27 +1,6 @@
 """
 ** EJERCICIOS INTEGRADORES **
 """
-
-print("Elija el número de script (1 al 8) que desea ejecutar")
-eleccion = input()
-
-match eleccion:
-    case "1":
-        pass
-    case "2":
-        pass
-    case "3":
-        diccionario()
-    case "4":
-        print(mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres:  "))))
-    case "5":
-        print(get_int(prueba))
-    case "6":
-        clase_persona()
-    case "7":
-        clase_cuenta()
-    case "8":
-        clase_cuentajoven()
     
 # 1. Escribir una función que calcule el máximo común divisor entre dos números.
 
@@ -284,3 +263,24 @@ def clase_cuentajoven():
     juan.retirar(500, 14)
     juan.retirar(200, 22)
     juan.mostrar()
+
+print("Elija el número de script (1 al 8) que desea ejecutar")
+eleccion = input()
+
+match eleccion:
+    case "1":
+        pass
+    case "2":
+        pass
+    case "3":
+        diccionario()
+    case "4":
+        print(mas_repetida(contar_palabras(input("Ej4: Ingrese una cadena de caracteres:  "))))
+    case "5":
+        print(get_int(prueba))
+    case "6":
+        clase_persona()
+    case "7":
+        clase_cuenta()
+    case "8":
+        clase_cuentajoven()
