@@ -82,14 +82,17 @@ def mas_repetida(dicc):
     """
     keymax = ''
     max = 0
+    maximos=[]
     for key in dicc:
         if dicc[key] >= max:
             max = dicc[key]
             keymax = key
+            tuplamax = (keymax, max)
+            maximos.append(tuplamax)
         else:
             pass
-    tuplamax = (keymax, max)
-    print(f'Ej4: La tupla de valores máximos es: {tuplamax}')
+    
+    print(f'Ej4: La tupla de valores máximos es: {maximos}')
     return tuplamax
 
 
