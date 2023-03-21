@@ -2,8 +2,8 @@
 ** EJERCICIOS INTEGRADORES **
 """
 
-    
 # 1. Escribir una función que calcule el máximo común divisor entre dos números.
+
 
 def maximo_comun_divisor(x, y):
     comodin = 0
@@ -13,54 +13,59 @@ def maximo_comun_divisor(x, y):
         x = comodin
     return x
 
+
 def test_ej1():
     '''
     Esta funcion la usamos para pasarle ejemplos a la funcion maximo_comun_divisor(x, y) que se encarga del cálculo
     '''
-    print ("Ej1: Cálculo de MCD ")
-    print ('El máximo común divisor "M.C.D" es el mayor número que divide exactamente a dos o más números.')
-    print ('La utilidad del M.C.D es simplificar las fracciones.')
-    print ("Grupo A de 18 personas y Grupo B de 12 personas.")
-    print ("Armar grupos de igual número de personas para que no haya ventajas.")
-    x= int(input("Ingrese un número (puede ser 18): "))
-    y= int(input("Ingrese otro número (puede ser 12): "))
-    #resultado= maximo_comun_divisor(x,y)
-    #print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {resultado}")
-    print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {maximo_comun_divisor(x,y)}")
-    #print (f"Ahora podemos armar para los grupo A y B grupos iguales de {resultado} personas ")
-    print (f"Ahora podemos armar para los grupo A y B grupos iguales de {maximo_comun_divisor(x,y)} personas ")
+    print("Ej1: Cálculo de MCD ")
+    print('El máximo común divisor "M.C.D" es el mayor número que divide exactamente a dos o más números.')
+    print('La utilidad del M.C.D es simplificar las fracciones.')
+    print("Grupo A de 18 personas y Grupo B de 12 personas.")
+    print("Armar grupos de igual número de personas para que no haya ventajas.")
+    x = int(input("Ingrese un número (puede ser 18): "))
+    y = int(input("Ingrese otro número (puede ser 12): "))
+    # resultado= maximo_comun_divisor(x,y)
+    # print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {resultado}")
+    print(
+        f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {maximo_comun_divisor(x,y)}")
+    # print (f"Ahora podemos armar para los grupo A y B grupos iguales de {resultado} personas ")
+    print(
+        f"Ahora podemos armar para los grupo A y B grupos iguales de {maximo_comun_divisor(x,y)} personas ")
 
 
 # 2. Escribir una función que calcule el mínimo común múltiplo entre dos números
 
-def mcm(x,y):
-    return (x*y)/maximo_comun_divisor(x,y)
+def mcm(x, y):
+    return (x*y)/maximo_comun_divisor(x, y)
+
 
 def prueba_ej2():
     '''
     Esta función le pasa valores a la función mcm.
     La utilizamos para testear el funcionamiento
     '''
-    print ("Ej2: Calculo de MCM ")
-    x= int(input("Ingrese el primer número para calcular su MCM: "))
-    y= int(input("Ingrese el segundo número para calcular su MCM: "))
-    respuesta_ej2=mcm(x,y)
+    print("Ej2: Calculo de MCM ")
+    x = int(input("Ingrese el primer número para calcular su MCM: "))
+    y = int(input("Ingrese el segundo número para calcular su MCM: "))
+    respuesta_ej2 = mcm(x, y)
     print(f"El mínimo común múltiplo de {x} y {y} es: {respuesta_ej2}")
 
 # 3. Escribir un programa que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia).
 
+
 def diccionario(inicio):
-    
-    #solicito al usuario una entrada de texto
+
+    # solicito al usuario una entrada de texto
     lista = str(input("ingese su texto: "))
-    #genera una lista donde cada palabra es un elemento
+    # genera una lista donde cada palabra es un elemento
     lista = (lista.split())
     # itera la lista formando un diccionario donde el key es la palabra y el valor su repetición
-    diccionario = {i:lista.count(i) for i in lista}
-    # imprimo el diccionario 
+    diccionario = {i: lista.count(i) for i in lista}
+    # imprimo el diccionario
 
-    if inicio == 3:   
-        print(diccionario)  
+    if inicio == 3:
+        print(diccionario)
     else:
 
         return diccionario
@@ -68,7 +73,7 @@ def diccionario(inicio):
 
 # 4. Escribir una función que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia). Escribir otra función que reciba el diccionario generado con la función anterior y devuelva una tupla con la palabra más repetida y su frecuencia.
 
-def mas_repetida (dicc):
+def mas_repetida(dicc):
     """
     La función va a recibir un diccionario.
     Crea las variables keymax y max para guardar la clave del máximo y el valor máximo.
@@ -78,20 +83,19 @@ def mas_repetida (dicc):
     keymax = ''
     max = 0
     for key in dicc:
-        #print (dicc[key])
         if dicc[key] >= max:
             max = dicc[key]
             keymax = key
         else:
             pass
     tuplamax = (keymax, max)
-    print (f'Ej4 (print desde mas_repetida): La tupla de valores máximos es: {tuplamax}')
+    print(f'Ej4: La tupla de valores máximos es: {tuplamax}')
     return tuplamax
 
 
 # 5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el ejercicio tanto de manera iterativa como recursiva.
 
-def get_int ():
+def get_int():
     '''
     Inicializa la variable es_int que usaremos para entrar o salir del ciclo while, en donde guardaremos si se pudo realizar la conversión.
     Luego iniciamos un ciclo while, para que pida al usuario ingresar el valor hasta que pueda realizar la conversión (es_int == True sale del ciclo).
@@ -110,11 +114,9 @@ def get_int ():
             cadena = input('Ej5: Por favor ingrese un número entero: ')
 
 
-# 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los
-# siguientes métodos para la clase:
+# 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los siguientes métodos para la clase:
 # ● Un constructor, donde los datos pueden estar vacíos.
-# ● Los setters y getters para cada uno de los atributos. Hay que validar las entradas de
-# datos.
+# ● Los setters y getters para cada uno de los atributos. Hay que validar las entradas de datos.
 # ● mostrar(): Muestra los datos de la persona.
 # ● es_mayor_de_edad(): Devuelve un valor lógico indicando si es mayor de edad.
 
@@ -123,39 +125,39 @@ class Persona:
         self.__nombre = nombre
         self.__edad = edad
         self.__dni = dni
-    
+
     # Getters
     @property
     def nombre(self):
         return self.__nombre
-    
+
     @property
     def edad(self):
         return self.__edad
-    
+
     @property
     def dni(self):
         return self.__dni
-    
+
     # Setters
     @nombre.setter
     def nombre(self, nombre):
         self.__nombre = nombre
-    
+
     @edad.setter
     def edad(self, edad):
         if type(edad) == int and edad >= 0:
             self.__edad = edad
         else:
             print("Error: ¡La edad debe ser un número positivo!")
-        
+
     @dni.setter
     def dni(self, dni):
         if type(dni) == int and 999999 < dni <= 99999999:
             self.__dni = dni
         else:
             print("Error: ¡DNI incorrecto!")
-    
+
     def mostrar(self):
         print("Nombre: ", self.__nombre)
         print("Edad: ", self.__edad)
@@ -166,6 +168,7 @@ class Persona:
             return True
         else:
             return False
+
 
 def clase_persona():
     persona = Persona()
@@ -223,77 +226,75 @@ class Cuenta:
 
     def ingresar(self, monto):
         if monto > 0:
-            self.cantidad= self.cantidad + monto
+            self.cantidad = self.cantidad + monto
             print(f'El monto actual es {self.cantidad}')
         else:
             print(f'el monto es menor a cero, no se puede ingresar')
         print('Fin de la transacción')
 
     def retirar(self, monto):
-        self.cantidad= self.cantidad - monto
+        self.cantidad = self.cantidad - monto
         print(f'El monto actual es {self.cantidad}')
+
 
 def clase_cuenta():
     cliente1 = Cuenta()
-    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(f'Mostrar cliente1: {cliente1.mostrar()}')
     print(cliente1.mostrar())
-    cliente1.titular= "Pepe"
-    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    cliente1.titular = "Pepe"
+    print(f'Mostrar cliente1: {cliente1.mostrar()}')
     cliente1.ingresar(-10)
-    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(f'Mostrar cliente1: {cliente1.mostrar()}')
     cliente1.ingresar(50)
-    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(f'Mostrar cliente1: {cliente1.mostrar()}')
     cliente1.retirar(20)
-    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(f'Mostrar cliente1: {cliente1.mostrar()}')
     cliente1.retirar(50)
-    print (f'Mostrar cliente1: {cliente1.mostrar()}')
+    print(f'Mostrar cliente1: {cliente1.mostrar()}')
 
 
 # 8. Vamos a definir ahora una “Cuenta Joven”, para ello vamos a crear una nueva clase
-# CuentaJoven que deriva de la clase creada en el punto 7. Cuando se crea esta nueva clase,
-# además del titular y la cantidad se debe guardar una bonificación que estará expresada en
-# tanto por ciento. Crear los siguientes métodos para la clase:
+# CuentaJoven que deriva de la clase creada en el punto 7. Cuando se crea esta nueva clase, además del titular y la cantidad se debe guardar una bonificación que estará expresada en tanto por ciento. Crear los siguientes métodos para la clase:
 # ● Un constructor.
 # ● Los setters y getters para el nuevo atributo.
-# ● En esta ocasión los titulares de este tipo de cuenta tienen que ser mayor de edad, por lo
-# tanto hay que crear un método es_titular_valido() que devuelve verdadero si el titular es
-# mayor de edad pero menor de 25 años y falso en caso contrario.
+# ● En esta ocasión los titulares de este tipo de cuenta tienen que ser mayor de edad, por lo tanto hay que crear un método es_titular_valido() que devuelve verdadero si el titular es mayor de edad pero menor de 25 años y falso en caso contrario.
 # ● Además, la retirada de dinero sólo se podrá hacer si el titular es válido.
-# ● El método mostrar() debe devolver el mensaje de “Cuenta Joven” y la bonificación de la
-# cuenta.
+# ● El método mostrar() debe devolver el mensaje de “Cuenta Joven” y la bonificación de la cuenta.
 
 class CuentaJoven(Cuenta):
     """
     Esta clase hereda los atributos y métodos de la clase Cuenta, pero para realizar una extracción, se debe tener entre 18 y 24 años. También cuenta con una bonificación por tratarse de un grupo etario joven
     """
+
     def __init__(self, titular, cantidad=0, bonificacion=0):
         super().__init__(titular, cantidad)
         self.__bonificacion = bonificacion
-    
+
     # Getter
     @property
     def bonificacion(self):
         return self.__bonificacion
-    
+
     # Setter
     @bonificacion.setter
     def bonificacion(self, bonificacion):
         self.__bonificacion = bonificacion
-    
+
     # Métodos
     def es_titular_valido(self, edad):
         return edad >= 18 and edad < 25
-    
+
     def retirar(self, cantidad, edad):
         if self.es_titular_valido(edad):
             super().retirar(cantidad)
         else:
             print("No puedes retirar, ya que no perteneces al grupo joven")
-    
+
     def mostrar(self):
         print(super().mostrar())
         print("Cuenta Joven")
         print("Bonificación:", self.__bonificacion, "%")
+
 
 def clase_cuentajoven():
     juan = CuentaJoven("Juan Perez", 1000, 15)
@@ -308,7 +309,6 @@ def clase_cuentajoven():
 
 
 def inicio(eleccion):
-  
 
     match eleccion:
         case "1":
@@ -327,5 +327,6 @@ def inicio(eleccion):
             clase_cuenta()
         case "8":
             clase_cuentajoven()
+
 
 inicio(input("Elija el número de script (1 al 8) que desea ejecutar:  "))
