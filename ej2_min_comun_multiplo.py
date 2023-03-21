@@ -1,4 +1,4 @@
-print("El mínimo común multiplo 'mcd' es el número más pequeño de los múltiplos comunes  ")
+print("El mínimo común multiplo 'mcm' es el número más pequeño de los múltiplos comunes  ")
 from ej1_max_comun_divisor import maximo_comun_divisor
 def mcm(x,y):
     
