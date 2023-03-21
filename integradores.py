@@ -5,9 +5,30 @@
     
 # 1. Escribir una función que calcule el máximo común divisor entre dos números.
 
+def maximo_comun_divisor(x, y):
+    comodin = 0
+    while y != 0:
+        comodin = y
+        y = x % y
+        x = comodin
+    return x
 
-
-
+def test_ej1():
+    '''
+    Esta funcion la usamos para pasarle ejemplos a la funcion maximo_comun_divisor(x, y) que se encarga del cálculo
+    '''
+    print ("Ej1: ")
+    print('El máximo común divisor "M.C.D" es el mayor número que divide exactamente a dos o más números.')
+    '''La utilidad del M.C.D es simplificar las fracciones.'''
+    print("Grupo A de 18 personas y Grupo B de 12 personas.")
+    print("Armar grupos de igual número de personas para que no haya ventajas.")
+    x= int(input("Ej1: Ingrese un número (puede ser 18): "))
+    y= int(input("Ej1: Ingrese otro número (puede ser 12): "))
+    #resultado= maximo_comun_divisor(x,y)
+    #print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {resultado}")
+    print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {maximo_comun_divisor(x,y)}")
+    #print (f"Ahora podemos armar para los grupo A y B grupos iguales de {resultado} personas ")
+    print (f"Ahora podemos armar para los grupo A y B grupos iguales de {maximo_comun_divisor(x,y)} personas ")
 
 
 # 2. Escribir una función que calcule el mínimo común múltiplo entre dos números
@@ -286,7 +307,7 @@ def inicio(eleccion):
 
     match eleccion:
         case "1":
-            pass
+            test_ej1()
         case "2":
             pass
         case "3":
