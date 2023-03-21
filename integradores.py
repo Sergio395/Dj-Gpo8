@@ -17,13 +17,13 @@ def test_ej1():
     '''
     Esta funcion la usamos para pasarle ejemplos a la funcion maximo_comun_divisor(x, y) que se encarga del cálculo
     '''
-    print ("Ej1: ")
-    print('El máximo común divisor "M.C.D" es el mayor número que divide exactamente a dos o más números.')
-    '''La utilidad del M.C.D es simplificar las fracciones.'''
-    print("Grupo A de 18 personas y Grupo B de 12 personas.")
-    print("Armar grupos de igual número de personas para que no haya ventajas.")
-    x= int(input("Ej1: Ingrese un número (puede ser 18): "))
-    y= int(input("Ej1: Ingrese otro número (puede ser 12): "))
+    print ("Ej1: Cálculo de MCD ")
+    print ('El máximo común divisor "M.C.D" es el mayor número que divide exactamente a dos o más números.')
+    print ('La utilidad del M.C.D es simplificar las fracciones.')
+    print ("Grupo A de 18 personas y Grupo B de 12 personas.")
+    print ("Armar grupos de igual número de personas para que no haya ventajas.")
+    x= int(input("Ingrese un número (puede ser 18): "))
+    y= int(input("Ingrese otro número (puede ser 12): "))
     #resultado= maximo_comun_divisor(x,y)
     #print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {resultado}")
     print (f"Entre el número {x} y el número {y} el cálculo del  M.C.D es {maximo_comun_divisor(x,y)}")
@@ -33,11 +33,19 @@ def test_ej1():
 
 # 2. Escribir una función que calcule el mínimo común múltiplo entre dos números
 
+def mcm(x,y):
+    return (x*y)/maximo_comun_divisor(x,y)
 
-
-
-
-
+def prueba_ej2():
+    '''
+    Esta función le pasa valores a la función mcm.
+    La utilizamos para testear el funcionamiento
+    '''
+    print ("Ej2: Calculo de MCM ")
+    x= int(input("Ingrese el primer número para calcular su MCM: "))
+    y= int(input("Ingrese el segundo número para calcular su MCM: "))
+    respuesta_ej2=mcm(x,y)
+    print(f"El mínimo común múltiplo de {x} y {y} es: {respuesta_ej2}")
 
 # 3. Escribir un programa que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia).
 
@@ -100,9 +108,6 @@ def get_int ():
         except ValueError:
             es_int = False
             cadena = input('Ej5: Por favor ingrese un número entero: ')
-
-# Comprobación de funcionamiento8
-
 
 
 # 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los
@@ -309,7 +314,7 @@ def inicio(eleccion):
         case "1":
             test_ej1()
         case "2":
-            pass
+            prueba_ej2()
         case "3":
             diccionario(3)
         case "4":
